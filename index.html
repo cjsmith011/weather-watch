@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    
+    <title>Weather Watch</title>
+</head>
+
+<body class = "mx-2 my-2">
+    <section class = "hero is-info">
+    <div class = "hero-body">
+        <h1 class="title">Weather Dashboard</h1>
+    </div>
+    </section>
+    <!--this is the left column with the search and history-->
+    <div class = "columns">
+        <div class = "column is-half" id = "search">
+        <form class = "search-section" id="user-search">
+            <h2>Search for a City</h3>
+            <button type="submit" class="is-info">Search</button>
+            <input name="city" id ="city" placeholder="City Name"></input>
+        </form>
+            <div class = "history"></div>
+        </div>
+    <!--this is the right column with rows for the City current and 5 day forecast-->
+        <div class = "column is-half" id = "results">
+            <div class = "row" id = "city-deets">This is the current day forecast</div>
+            <div class = "row" id = "forecast">
+                <h2>5 day forecast:</h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

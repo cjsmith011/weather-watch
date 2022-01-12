@@ -1,0 +1,29 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+body {
+    background-color: palegoldenrod;
+    margin;
+}
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-weight: bolder;
+}
+
+/* .btn {
+    font-size: 1.3rem;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 20%;
+    display: block;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: whitesmoke;
+    border: navy
+    outline: none;
+    background-color: lightskyblue;
+    box-shadow: 3px 3px var(--dark);
+    transform: translate(-1px, -1px);
+  } */
