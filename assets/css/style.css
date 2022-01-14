@@ -15,3 +15,9 @@ h2 {
     box-shadow: 3px 3px var(--dark);
     
   }
+
+.eachday {
+        border-radius: 25px;
+    outline: none;
+    box-shadow: 3px 3px var(--dark);
+}
