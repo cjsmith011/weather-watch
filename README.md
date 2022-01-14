@@ -1,6 +1,11 @@
 # weather-watch
 
-Used bulma.io for my styling.
+Thank you for checking out my Weather page.
+This was a challenging and fun assignment.  I was able to do much of it on my own, starting to really put the pieces of the classes and modules together!
+
+I used bulma.io for much of my styling, this was practice for the group project in which we have to use a styling software other than Bootstrap.
+
+I had difficulty finding an api that met all of the criteria so I don't have wind and humidity but I was excited to put in 2 apis: 1 for grabbing the location key of the city and then putting that into the 2nd api to get weather info for that city.
 
 User story: AS A traveler
 I WANT to see the weather outlook for multiple cities

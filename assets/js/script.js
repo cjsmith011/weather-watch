@@ -13,11 +13,17 @@ var getCityName = function(event) {
     var searchCityST = cityInputEl.value.trim();
     if(searchCityST) {
         getLocation(searchCityST);
-         
+        saveCity(searchCityST);
      } else {
         alert("Please choose a city or provide just the name of the city.");
         }
 };
+
+var saveCity = function(city) {
+    localStorage.setItem(city, JSON.stringify(city));
+    console.log(city);
+
+}
 
 //pass the city,st into the location api
 var getLocation = function(name) {
@@ -27,7 +33,6 @@ var getLocation = function(name) {
     
         })
     .then(function(data) {
-        console.log(data[0].Key);
         var cityKey = data[0].Key;
         getCurrentForecast(cityKey);
         get5dayForecast(cityKey);
@@ -67,7 +72,6 @@ var get5dayForecast = function(key) {
             return response.json();
             })
         .then(function(data) {
-            console.log(data.DailyForecasts);
             // Build the 5 day forecast
         
             currentIndex = 0;
