@@ -8,6 +8,10 @@ h1 {
 h2 {
     font-weight: bolder;
 }
+h4 {
+    font-weight: bolder;
+    color: red;
+}
 
 .hero-body {
     border-radius: 25px;
@@ -16,8 +20,3 @@ h2 {
     
   }
 
-.eachday {
-        border-radius: 25px;
-    outline: none;
-    box-shadow: 3px 3px var(--dark);
-}

@@ -1,10 +1,12 @@
-//var currentDayEl = document.querySelector(".city-deets")
+
 var startSearchEl = document.getElementById("is-info");
 var cityInputEl = document.getElementById('city');
 var cityContainer = document.getElementById('city-deets');
 var day1Container = document.getElementById('days');
 var date = new Date();
-
+var historyContainer = document.getElementById('history');
+var noResults = document.getElementById('noCityFound');
+var recallSearchEl = document.getElementById('recall');
 
 //get user input for city to search
 var getCityName = function(event) {
@@ -12,17 +14,35 @@ var getCityName = function(event) {
     event.preventDefault();
     var searchCityST = cityInputEl.value.trim();
     if(searchCityST) {
+        //start the location key api and the city weather api
         getLocation(searchCityST);
         saveCity(searchCityST);
-     } else {
-        alert("Please choose a city or provide just the name of the city.");
-        }
+     } 
 };
 
+//save the searched cities to local storage and make them clickable buttons
 var saveCity = function(city) {
     localStorage.setItem(city, JSON.stringify(city));
-    console.log(city);
+ 
+    var cityHistory = document.createElement('ul');
+    var citySearched = document.createElement('li');
+    var cityButton = document.createElement('button');
+    //cityButton.id = "recall";
+    cityButton.textContent = city;
 
+    historyContainer.appendChild(cityHistory);
+    cityHistory.appendChild(citySearched);
+    citySearched.appendChild(cityButton);
+    //allow the button to be used to start the local storage retrieval
+    //recallSearchEl.addEventListener("click", recallSearch);
+    recallSearch();
+}
+//pull the cities back from local storage
+var recallSearch = function () {
+    recallSearch.addEventListener("click", localStorage.getItem(city));
+    
+    console.log("did we retrieve?????")
+ 
 }
 
 //pass the city,st into the location api
@@ -33,10 +53,20 @@ var getLocation = function(name) {
     
         })
     .then(function(data) {
+        if (data.length === 0) {
+        //if no city/state found, let the user know to try again
+     
+        var noCityFound = document.createElement('h4');
+        noCityFound.textContent = "Not found.  Please type in a city,state or zip.";
+
+        noResults.appendChild(noCityFound);
+        getCityName();
+        } else {
         var cityKey = data[0].Key;
         getCurrentForecast(cityKey);
         get5dayForecast(cityKey);
-    });
+    }
+});
 }
 
 //pass the location key into the forecast api
@@ -48,6 +78,7 @@ var getCurrentForecast = function(key) {
             .then(function(data) {
        // Build the city details div
             var cityItems = document.createElement('ul');
+            var cityDay = document.createElement('box');
             var cityName = document.getElementById('cityHere');
             cityName.textContent = cityInputEl.textContent;
             var cityConditions = document.createElement('li');
@@ -77,15 +108,15 @@ var get5dayForecast = function(key) {
             currentIndex = 0;
           
             for (i = 1; i < data.DailyForecasts.length; i++) {
-            var day1Items = document.createElement('div');
-            day1Items.setAttribute("class", "eachday");
-            var dayDate = document.createElement('p');
+            var day1Items = document.createElement('ul');
+            day1Items.setAttribute("class", "box");
+            var dayDate = document.createElement('li');
             dayDate.textContent = "Date: " + data.DailyForecasts[i].Date;
-            var cityConditions = document.createElement('p');
+            var cityConditions = document.createElement('li');
             cityConditions.textContent = "Conditions: " + data.DailyForecasts[i].Day.IconPhrase;
-            var cityTempHigh = document.createElement('p');
+            var cityTempHigh = document.createElement('li');
             cityTempHigh.textContent = "High temp for the day: " + data.DailyForecasts[i].Temperature.Maximum.Value + " ºF";
-            var cityTempLow = document.createElement('p');
+            var cityTempLow = document.createElement('li');
             cityTempLow.textContent = "Low temp for the day: " + data.DailyForecasts[i].Temperature.Minimum.Value + " ºF";
             
             day1Container.appendChild(day1Items);
@@ -97,6 +128,11 @@ var get5dayForecast = function(key) {
 });
 }
 
+var getHistory = function() {
+
+}
+
 
 startSearchEl.addEventListener("click", getCityName);
+
 
