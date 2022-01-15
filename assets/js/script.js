@@ -78,9 +78,6 @@ var getCurrentForecast = function(key) {
             .then(function(data) {
        // Build the city details div
             var cityItems = document.createElement('ul');
-            var cityDay = document.createElement('box');
-            var cityName = document.getElementById('cityHere');
-            cityName.textContent = cityInputEl.textContent;
             var cityConditions = document.createElement('li');
             cityConditions.textContent = "Conditions: " + data.DailyForecasts[0].Day.IconPhrase;
             var cityTempHigh = document.createElement('li');
@@ -89,7 +86,6 @@ var getCurrentForecast = function(key) {
             cityTempLow.textContent = "Low temp for the day: " + data.DailyForecasts[0].Temperature.Minimum.Value + " ºF";
             
             cityContainer.appendChild(cityItems);
-            cityItems.appendChild(cityName);
             cityItems.appendChild(cityConditions);
             cityItems.appendChild(cityTempHigh);
             cityItems.appendChild(cityTempLow);

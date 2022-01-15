@@ -7,6 +7,14 @@ I used bulma.io for much of my styling, this was practice for the group project 
 
 I had difficulty finding an api that met all of the criteria so I don't have wind and humidity but I was excited to put in 2 apis: 1 for grabbing the location key of the city and then putting that into the 2nd api to get weather info for that city.
 
+GitHub link: https://github.com/cjsmith011/weather-watch.git
+
+Deployed site: https://cjsmith011.github.io/weather-watch/
+
+[screenshot]://
+
+
+
 User story: AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
