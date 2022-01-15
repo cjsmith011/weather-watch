@@ -27,7 +27,11 @@ var getCityName = function(event) {
 
 //save the searched cities to local storage and make them clickable buttons
 var saveCity = function(city) {
-    localStorage.setItem(city, JSON.stringify(city));
+    if (cities.indexOf(city) !== -1) {
+        return;
+    } 
+    cities.push(city);
+    localStorage.setItem("city", JSON.stringify(cities));
  
     var cityHistory = document.createElement('ul');
     var citySearched = document.createElement('li');
@@ -45,18 +49,19 @@ var saveCity = function(city) {
 }
 //pull the cities back from local storage
 var recallSearch = function () {
-    var getCities = localStorage.getItem(cities);
+    var getCities = localStorage.getItem("city");
     
     console.log(getCities);
         if (!getCities) {
             return false;
         }
         console.log("did we retrieve?????");
+        
         getCities = JSON.parse(getCities);
-        for (var i = 0; i < getCities.length; i++) {
-            historyContainer(getCities[i]);
+        // for (var i = 0; i < getCities.length; i++) {
+        //     historyContainer(getCities[i]);
         }
-}
+
 
 //pass the city,st into the location api
 var getLocation = function(name) {
@@ -137,9 +142,9 @@ var get5dayForecast = function(key) {
 });
 }
 
-var getHistory = function() {
+// function getHistory ()
 
-}
+// }
 
 
 startSearchEl.addEventListener("click", getCityName);

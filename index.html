@@ -17,9 +17,9 @@
 </head>
 
 <body class = "mx-2 my-2">
-    <section class = "hero is-info">
+    <section class = "hero is-warning">
     <div class = "hero-body">
-        <h1 class="title">Weather Dashboard</h1>
+        <h1 class="title">~~~~~   Weather Dashboard   ~~~~~</h1>
     </div>
     </section>
     <!--this is the left column with the search and history-->
@@ -34,12 +34,14 @@
             <div id = "noCityFound"></div>
         </form>
             <h2>Search History</h2>
-            <div class = "box" id = "history"></div>
+            <div class = "box" id = "history">
+                <button type="submit" class ="button is-dark is-fullwidth" id ="searchHistory">Click for previous searches</button>
+            </div>
         </div>
     <!--this is the right column with sections for the City current and 5 day forecast-->
         <div class = "column" id = "results">
-                    <h2>This is the current day forecast:</h2>
-            <div class = "box" id = "city-deets"><span id = "cityHere"></span></div>
+                    <h2>This is the current day forecast: <span id ="cityHere"></span></span></h2>
+            <div class = "box" id = "city-deets"></div>
                    <h2>4 day forecast:  </h2>
                    <div class = "box" id = "days"></div>
             </div>
@@ -51,10 +53,10 @@
 <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>Weather Watch </strong><a>by cjsmith011</a>. 
+        <strong>Weather Watch </strong><a>by cjsmith011</a>
         
-        <a href="https://github.com/cjsmith011/weather-watch.git">GitHub</a>
-        <a href="mailto:carliesmith@amrock.com">Email: carliesmith@amrock.com</a>
+        <button class="button"><a href="https://github.com/cjsmith011/weather-watch">GitHub</a></i></span></button>
+        <button class="button"><a href="mailto:carliesmith@amrock.com">Email</a></button>
       </p>
     </div>
   </footer>
