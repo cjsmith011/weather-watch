@@ -5,11 +5,10 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2, h3, h4 {
     font-weight: bolder;
 }
 h4 {
-    font-weight: bolder;
     color: red;
 }
 
@@ -20,3 +19,17 @@ h4 {
     
   }
 
+button {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+ul {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.box {
+    background-color: rgb(241, 232, 232);
+    border-radius: 10px;
+}

@@ -7,6 +7,7 @@ var date = new Date();
 var historyContainer = document.getElementById('history');
 var noResults = document.getElementById('noCityFound');
 var recallSearchEl = document.getElementById('recall');
+var cities = [];
 
 //get user input for city to search
 var getCityName = function(event) {
@@ -14,6 +15,10 @@ var getCityName = function(event) {
     event.preventDefault();
     var searchCityST = cityInputEl.value.trim();
     if(searchCityST) {
+        //clear the previous weather information when the next city is input by the user
+        cityContainer.textContent = "";
+        day1Container.textContent = "";
+      
         //start the location key api and the city weather api
         getLocation(searchCityST);
         saveCity(searchCityST);
@@ -27,6 +32,7 @@ var saveCity = function(city) {
     var cityHistory = document.createElement('ul');
     var citySearched = document.createElement('li');
     var cityButton = document.createElement('button');
+    cityButton.className = "button is-primary is-fullwidth is-active";
     //cityButton.id = "recall";
     cityButton.textContent = city;
 
@@ -39,10 +45,17 @@ var saveCity = function(city) {
 }
 //pull the cities back from local storage
 var recallSearch = function () {
-    recallSearch.addEventListener("click", localStorage.getItem(city));
+    var getCities = localStorage.getItem(cities);
     
-    console.log("did we retrieve?????")
- 
+    console.log(getCities);
+        if (!getCities) {
+            return false;
+        }
+        console.log("did we retrieve?????");
+        getCities = JSON.parse(getCities);
+        for (var i = 0; i < getCities.length; i++) {
+            historyContainer(getCities[i]);
+        }
 }
 
 //pass the city,st into the location api

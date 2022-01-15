@@ -11,7 +11,7 @@ GitHub link: https://github.com/cjsmith011/weather-watch.git
 
 Deployed site: https://cjsmith011.github.io/weather-watch/
 
-[screenshot]://
+[screenshot]:https://github.com/cjsmith011/weather-watch/blob/main/assets/images/WeatherWatch.PNG
 
 
 
