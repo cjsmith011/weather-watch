@@ -6,16 +6,14 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<!--this is the bulma stylesheet-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-
     <link rel="stylesheet" href="assets/css/style.css">
 
-
-    
+   
     <title>Weather Watch</title>
 </head>
-
+    <!--this is the hero section at the top-->
 <body class = "mx-2 my-2">
     <section class = "hero is-warning">
     <div class = "hero-body">
@@ -26,13 +24,15 @@
     <div class = "columns">
         <div class = "column is-one-third" id = "search">
             <h2>Search for a City:</h2>
+        <!--form to capture the user entry and display and error if not found-->
         <form class = "box" id="user-search">
-            
+        
             <h3>Enter as City,ST (no spaces) or Zip Code</h3>            
             <input class="input is-normal" name="city" id ="city" placeholder="City Name,ST"></input>
             <button type="submit" id="is-info" class="button is-dark is-fullwidth">Search</button>
             <div id = "noCityFound"></div>
         </form>
+        <!--section to capture the searched cities and click on them in storage-->
             <h2>Search History</h2>
             <div class = "box" id = "history">
                 <button type="submit" class ="button is-dark is-fullwidth" id ="searchHistory">Click for previous searches</button>
@@ -49,7 +49,7 @@
     </div>
     <script src="assets/js/script.js"></script>
 </body>
-
+<!--footer to balance out the page layout-->
 <footer class="footer">
     <div class="content has-text-centered">
       <p>

@@ -8,6 +8,7 @@ var historyContainer = document.getElementById('history');
 var noResults = document.getElementById('noCityFound');
 var recallSearchEl = document.getElementById('recall');
 var cities = [];
+var searchHistoryEl = document.getElementById('searchHistory');
 
 //get user input for city to search
 var getCityName = function(event) {
@@ -37,7 +38,7 @@ var saveCity = function(city) {
     var citySearched = document.createElement('li');
     var cityButton = document.createElement('button');
     cityButton.className = "button is-primary is-fullwidth is-active";
-    //cityButton.id = "recall";
+ 
     cityButton.textContent = city;
 
     historyContainer.appendChild(cityHistory);
@@ -45,7 +46,7 @@ var saveCity = function(city) {
     citySearched.appendChild(cityButton);
     //allow the button to be used to start the local storage retrieval
     //recallSearchEl.addEventListener("click", recallSearch);
-    recallSearch();
+  
 }
 //pull the cities back from local storage
 var recallSearch = function () {
@@ -58,11 +59,32 @@ var recallSearch = function () {
         console.log("did we retrieve?????");
         
         getCities = JSON.parse(getCities);
-        // for (var i = 0; i < getCities.length; i++) {
-        //     historyContainer(getCities[i]);
+      
+        //loop through the cities array to build the buttons 
+        for (var i = 0; i < getCities.length; i++) {
+        
+        var cityHistory = document.createElement('ul');
+        var citySearched = document.createElement('li');
+        var cityButton = document.createElement('button');
+        cityButton.className = "button is-primary is-fullwidth is-active";
+        cityButton.idName = "storedCity";
+        cityButton.textContent = getCities[i];
+    
+        historyContainer.appendChild(cityHistory);
+        cityHistory.appendChild(citySearched);
+        citySearched.appendChild(cityButton);
+        //historyClick();
         }
+    
+        // var historyClick = function () {
+        //  cityButton.addEventListener('click', recallCity);
 
-
+        //  }
+        //  var recallCity = function () {
+      
+        // cityInputEl.textContent = getCities[i];
+        }
+    
 //pass the city,st into the location api
 var getLocation = function(name) {
     var locationURL = "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=UCqiTrpHfka3AP7MAaQAp5iVWw9ynNdp&q=" + name;
@@ -118,9 +140,8 @@ var get5dayForecast = function(key) {
             })
         .then(function(data) {
             // Build the 5 day forecast
-        
             currentIndex = 0;
-          
+         //loop through the days in the api to return 4 after the current day
             for (i = 1; i < data.DailyForecasts.length; i++) {
             var day1Items = document.createElement('ul');
             day1Items.setAttribute("class", "box");
@@ -142,11 +163,6 @@ var get5dayForecast = function(key) {
 });
 }
 
-// function getHistory ()
-
-// }
-
-
 startSearchEl.addEventListener("click", getCityName);
 
-
+searchHistoryEl.addEventListener("click", recallSearch);

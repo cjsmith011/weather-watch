@@ -5,7 +5,10 @@ This was a challenging and fun assignment.  I was able to do much of it on my ow
 
 I used bulma.io for much of my styling, this was practice for the group project in which we have to use a styling software other than Bootstrap.
 
-I had difficulty finding an api that met all of the criteria so I don't have wind and humidity but I was excited to put in 2 apis: 1 for grabbing the location key of the city and then putting that into the 2nd api to get weather info for that city.
+I was excited to put in 2 apis: 1 for grabbing the location key of the city and then putting that into the 2nd api to get weather info for that city.
+
+Please click on the Search - it will return results for City,ST or Zip.
+Please refresh and click on the Click for previous searches and it will load your completed searches.  
 
 GitHub link: https://github.com/cjsmith011/weather-watch.git
 
